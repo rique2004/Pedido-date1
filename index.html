@@ -3,106 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Processo Seletivo Oficial ❤️</title>
+<title>Pedido Especial ❤️</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#ff9a9e,#fad0c4);overflow:hidden}
-.card{background:#fff;padding:30px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.2);width:90%;max-width:500px;text-align:center;position:relative;z-index:2}
-h1{margin-bottom:15px;color:#ff4d6d}
-.progress{height:10px;background:#eee;border-radius:50px;overflow:hidden;margin-bottom:20px}
-.progress-bar{height:100%;width:0%;background:#ff4d6d;transition:.5s}
-.question{font-size:22px;font-weight:bold;margin-bottom:25px;color:#333}
-.buttons{display:flex;justify-content:center;gap:20px;position:relative;height:80px}
-button{border:none;padding:15px 25px;border-radius:50px;font-size:18px;cursor:pointer;transition:.3s}
-#yes{background:#28a745;color:white}
-#yes:hover{transform:scale(1.1)}
-#no{background:#dc3545;color:white;position:absolute;right:0}
-.final{display:none}
-.final h2{color:#ff4d6d;margin-bottom:15px}
-.whatsapp{display:inline-block;margin-top:15px;padding:15px 25px;background:#25D366;color:white;text-decoration:none;border-radius:50px;font-weight:bold}
-.heart{position:absolute;font-size:25px;animation:fall linear forwards;pointer-events:none}
-@keyframes fall{
-from{transform:translateY(-100px);opacity:1}
-to{transform:translateY(110vh);opacity:0}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow:hidden;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+width:90%;
+max-width:500px;
+text-align:center;
+}
+
+h1{
+color:#ff4d6d;
+margin-bottom:15px;
+}
+
+.question{
+font-size:22px;
+margin-bottom:25px;
+}
+
+.buttons{
+position:relative;
+height:120px;
+}
+
+button{
+border:none;
+padding:15px 25px;
+border-radius:50px;
+font-size:18px;
+cursor:pointer;
+}
+
+#yes{
+background:#28a745;
+color:white;
+}
+
+#no{
+background:#dc3545;
+color:white;
+position:absolute;
+left:60%;
+top:0;
+}
+
+.final{
+display:none;
+}
+
+.whatsapp{
+display:inline-block;
+margin-top:20px;
+padding:15px 25px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:bold;
 }
 </style>
+
 </head>
 <body>
-<div class="card">
-<h1>💖 Processo Seletivo Oficial 💖</h1>
 
-<div class="progress"><div class="progress-bar" id="progress"></div></div>
+<div class="card">
 
 <div id="quiz">
-<div class="question" id="question">Você aceita participar desta seleção extremamente importante? 😌</div>
+
+<h1>💖 Processo Seletivo 💖</h1>
+
+<div class="question" id="question">
+Você aceita participar desta seleção extremamente importante? 😌
+</div>
+
 <div class="buttons">
 <button id="yes">Sim ❤️</button>
 <button id="no">Não 😅</button>
 </div>
+
 </div>
 
-<div class="final" id="final">
-<h2>🎉 Parabéns!</h2>
-<p>Após uma análise rigorosa, profunda e extremamente profissional, você foi aprovada para sair comigo. ❤️</p>
-<p style="margin-top:10px">Benefícios incluem:</p>
-<p>✔ Risadas garantidas<br>✔ Memes exclusivos<br>✔ Carinho ilimitado<br>✔ Conversas até tarde</p>
+<div id="final" class="final">
 
-<a class="whatsapp" href="https://wa.me/5555996857045?text=Aceito%20o%20convite%20e%20fui%20aprovada%20no%20processo%20seletivo%20😂❤️" target="_blank">
-💬 Aceitar no WhatsApp
+<h1>🎉 Parabéns 🎉</h1>
+
+<p>
+Você foi aprovada para sair comigo ❤️
+</p>
+
+<a
+class="whatsapp"
+href="https://wa.me/5555996857045?text=Aceito%20o%20convite%20😂❤️"
+target="_blank">
+Ir para o WhatsApp
 </a>
+
 </div>
+
 </div>
 
 <script>
-const questions=[
+
+const perguntas = [
 "Você aceita participar desta seleção extremamente importante? 😌",
 "Você promete não rir das minhas piadas ruins? 😂",
 "Você aceita receber mensagens aleatórias durante o dia? 📱",
 "Você concorda que eu sou pelo menos um pouco engraçado? 😎",
-"Você toparia tomar um açaí, sorvete ou qualquer desculpa para sair comigo? 🍦",
+"Você toparia sair comigo para tomar algo? ☕",
 "Última pergunta: você aceita sair comigo? ❤️"
 ];
 
-let current=0;
-const progress=document.getElementById("progress");
-const question=document.getElementById("question");
-const yes=document.getElementById("yes");
-const no=document.getElementById("no");
+let atual = 0;
 
-yes.addEventListener("click",()=>{
-current++;
-if(current<questions.length){
-question.innerText=questions[current];
-progress.style.width=((current)/(questions.length-1))*100+"%";
-}else{
+const pergunta = document.getElementById("question");
+const sim = document.getElementById("yes");
+const nao = document.getElementById("no");
+
+sim.addEventListener("click", () => {
+
+atual++;
+
+if(atual < perguntas.length){
+pergunta.innerText = perguntas[atual];
+}
+else{
 document.getElementById("quiz").style.display="none";
 document.getElementById("final").style.display="block";
-for(let i=0;i<80;i++){setTimeout(createHeart,i*80);}
 }
+
 });
 
-function createHeart(){
-const heart=document.createElement("div");
-heart.classList.add("heart");
-heart.innerHTML=["❤️","💖","💕","💘","💝"][Math.floor(Math.random()*5)];
-heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(Math.random()*3+2)+"s";
-document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),5000);
+function fugir(){
+
+const largura = window.innerWidth - 120;
+const altura = window.innerHeight - 80;
+
+const x = Math.random() * largura;
+const y = Math.random() * altura;
+
+nao.style.position="fixed";
+nao.style.left=x+"px";
+nao.style.top=y+"px";
+
 }
 
-function moveButton(){
-const maxX=window.innerWidth-150;
-const maxY=window.innerHeight-100;
-const x=Math.random()*maxX;
-const y=Math.random()*maxY;
-no.style.position="fixed";
-no.style.left=x+"px";
-no.style.top=y+"px";
-}
+nao.addEventListener("mouseover", fugir);
+nao.addEventListener("touchstart", fugir);
 
-no.addEventListener("mouseover",moveButton);
-no.addEventListener("touchstart",function(e){e.preventDefault();moveButton();});
 </script>
+
 </body>
 </html>
